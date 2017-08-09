@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+  </head>
+  <body>
+    <div id="header">
+      <span class="logo">Bookmarks</span>
+    </div>
+    <div ="content">
+      {% block content %}{% endblock content %}
+    </div>
+  </body>
+</html>
