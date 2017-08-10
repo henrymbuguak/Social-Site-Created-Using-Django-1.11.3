@@ -1,0 +1,37 @@
+<!-- navigation -->
+<nav class="navbar navbar-default " style="background-color: #262130">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="" style="color: #fff">Bookmarks&trade;</a>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+{% if request.user.is_authenticated %}
+     <ul class="nav navbar-nav navbar-right">
+
+
+       <li {% if section == "dashboard" %}class="selected"{% endif %}><a href="{% url "dashboard" %}" style="color: #fff">DashBoard</a></li>
+       <li {% if section == "images" %}class="selected"{% endif %}><a href="{% url "dashboard" %}" style="color: #fff">Images</a></li>
+       <li {% if section == "people" %}class="selected"{% endif %}><a href="{% url "dashboard" %}" style="color: #fff">People</a></li>
+       <li class="dropdown">
+         <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #fff">{{ request.user.first_name }}
+        <span class="caret"></span></a>
+        {% if request.user.is_authenticated %}
+        <ul class="dropdown-menu">
+          <li><a href="{% url "logout" %}" style="color: #fff">Logout</a></li>
+          {% else %}
+          <li>  <a href="{% url "login" %}" style="background-color: #000">Login</a></li>
+        </ul>
+        {% endif %}
+       </li>
+     </ul>
+{% endif %}
+   </div>
+ </div>
+</nav>
+
+<!-- end navigation -->

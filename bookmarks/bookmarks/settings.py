@@ -120,6 +120,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATIC_ROOT = os.path.join(os.path.join(BASE_DIR), "static_cdn")
+MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR), "media_cdn")
+
+
+
+
+
+
 
 from django.core.urlresolvers import reverse_lazy
 
