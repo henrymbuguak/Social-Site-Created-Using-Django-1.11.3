@@ -12,3 +12,6 @@ h3 {
 .navbar{
   margin-bottom: 0px;
 }
+ul.nav a:hover {
+  background-color: #D9411E;
+}
