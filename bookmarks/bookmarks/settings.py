@@ -148,3 +148,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 SITE_ID = 1
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+)
