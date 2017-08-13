@@ -25,7 +25,7 @@ SECRET_KEY = '!p&$1@@eu7(wk@x4xy%^+(nx5k!fkx2_&awizthq)!qg=l40(m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'django.contrib.admin',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +133,7 @@ MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR), "media_cdn")
 
 
 
-
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 from django.core.urlresolvers import reverse_lazy
 
@@ -153,4 +154,13 @@ SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
 )
+
+SOCIAL_AUTH_TWITTER_KEY = 'uuvz2M36DxtTqZb7Qvk1SEiUU'
+SOCIAL_AUTH_TWITTER_SECRET = 'cqY5BdJLuEa9pUO4BXuLh0hMs7HIz1EOzikiJ3BNriCl7sOThq'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '338051796649093'
+SOCIAL_AUTH_FACEBOOK_SECRET = '3f9ad0528fb82c773069ddf58e2a3780'
