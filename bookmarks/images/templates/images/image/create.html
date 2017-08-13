@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Bookmark an image{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <h1>Bookmark an image</h1>
+      <img src="{{ request.GET.url }}" alt="Bookmark image on social website" class="responsive-image">
+      <form action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="" value="Bookmart Image!">
+      </form>
+    </div>
+  </div>
+{% endblock content %}
