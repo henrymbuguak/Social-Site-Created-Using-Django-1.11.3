@@ -31,6 +31,24 @@
     </div>
 
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+      var csrftoken = $.cookie('csrftoken');
+      function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken)
+          }
+        }
+      });
+
+      $(document).ready(function(){
+        {% block domready %}{% endblock domready %}
+      });
+    </script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
